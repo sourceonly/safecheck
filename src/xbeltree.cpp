@@ -46,7 +46,7 @@ XbelTree::XbelTree(QWidget *parent)
     : QTreeWidget(parent)
 {
     QStringList labels;
-    labels << tr("Title") << tr("Location");
+    labels << tr("Title") << tr("Location") << tr("Weight") << tr("Score");
 
     header()->setSectionResizeMode(QHeaderView::Stretch);
     setHeaderLabels(labels);
@@ -129,8 +129,20 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
             if (element.tagName() == "bookmark")
                 element.setAttribute("href", item->text(1));
         }
+	// element.setAttribute("weight", item->text(2));
+	// element.setAttribute("score", item->text(3));
+	
     }
 }
+
+
+
+
+  
+  
+  
+
+
 
 void XbelTree::parseFolderElement(const QDomElement &element,
                                   QTreeWidgetItem *parentItem)
@@ -144,14 +156,21 @@ void XbelTree::parseFolderElement(const QDomElement &element,
     item->setFlags(item->flags() | Qt::ItemIsEditable);
     item->setIcon(0, folderIcon);
     item->setText(0, title);
+    item->setText(2, element.attribute("weight"));
+    item->setText(3, element.attribute("score"));
+
+    item->setFlags(item->flags() & ~Qt::ItemIsEditable);
 
     bool folded = (element.attribute("folded") != "no");
     setItemExpanded(item, !folded);
-
+    
     QDomElement child = element.firstChildElement();
     while (!child.isNull()) {
         if (child.tagName() == "folder") {
             parseFolderElement(child, item);
+
+
+
         } else if (child.tagName() == "bookmark") {
             QTreeWidgetItem *childItem = createItem(child, item);
 
@@ -163,11 +182,18 @@ void XbelTree::parseFolderElement(const QDomElement &element,
             childItem->setIcon(0, bookmarkIcon);
             childItem->setText(0, title);
             childItem->setText(1, child.attribute("href"));
+	    childItem->setText(2, child.attribute("weight"));
+	    childItem->setText(3, child.attribute("score"));
+
+	    
         } else if (child.tagName() == "separator") {
             QTreeWidgetItem *childItem = createItem(child, item);
             childItem->setFlags(item->flags() & ~(Qt::ItemIsSelectable | Qt::ItemIsEditable));
             childItem->setText(0, QString(30, 0xB7));
+	
         }
+
+	
         child = child.nextSiblingElement();
     }
 }

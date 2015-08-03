@@ -54,7 +54,7 @@ MainWindow::MainWindow()
     statusBar()->showMessage(tr("Ready"));
 
     setWindowTitle(tr("DOM Bookmarks"));
-    resize(480, 320);
+    resize(800, 600);
 }
 
 void MainWindow::open()
