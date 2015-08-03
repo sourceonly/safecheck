@@ -64,11 +64,16 @@ private:
                             QTreeWidgetItem *parentItem = 0);
     QTreeWidgetItem *createItem(const QDomElement &element,
                                 QTreeWidgetItem *parentItem = 0);
-
+    void updateDomWeight(QDomElement item);
+    double getWeighSum (QDomElement item) ;
+    double getScore(QDomElement item);
+    bool refresh() ;
     QDomDocument domDocument;
     QHash<QTreeWidgetItem *, QDomElement> domElementForItem;
     QIcon folderIcon;
     QIcon bookmarkIcon;
 };
+
+
 
 #endif
