@@ -67,6 +67,7 @@ private:
     void updateDomWeight(QDomElement item);
     double getWeighSum (QDomElement item) ;
     double getScore(QDomElement item);
+    double getWeight(QDomElement item);
     bool refresh() ;
     QDomDocument domDocument;
     QHash<QTreeWidgetItem *, QDomElement> domElementForItem;

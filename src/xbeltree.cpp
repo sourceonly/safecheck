@@ -1,4 +1,4 @@
-/****************************************************************************
+/*****************************************************************************
  **
  ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
  ** Contact: http://www.qt-project.org/legal
@@ -8,7 +8,7 @@
  ** $QT_BEGIN_LICENSE:BSD$
  ** You may use this file under the terms of the BSD license as follows:
  **
- ** "Redistribution and use in source and binary forms, with or without
+ ** Redistribution and use in source and binary forms, with or without
  ** modification, are permitted provided that the following conditions are
  ** met:
  **   * Redistributions of source code must retain the above copyright
@@ -141,35 +141,68 @@ double XbelTree::getWeighSum (QDomElement item) {
   while (!child.isNull()) {
     if (child.hasAttribute("weight")) {
       sum+=child.attribute("weight").toDouble();
-      child = child.nextSiblingElement();
     }
+    child = child.nextSiblingElement();
   }
   printf("%lf",sum);
   if (sum > 0.001 ) {
     return sum;
   }
-
   return 0;
 }
 void XbelTree::updateDomWeight(QDomElement item) {
   double sum=getWeighSum(item);
   QDomElement child = item.firstChildElement();
+
   while (!child.isNull() ) {
-    child.attribute("weight","11");
+    if (child.tagName()!="folder"  && child.tagName()!="bookmark") {
+      child = child.nextSiblingElement();
+      continue;
+    }
+    if (child.tagName()=="folder") {
+      updateDomWeight(child);
+    }
+    if (child.hasAttribute("weight")) {
+      printf("-\n%lf\n-",child.attribute("weight").toDouble()/sum);
+      child.setAttribute("weight",QString::number(child.attribute("weight").toDouble()/sum));
+    }
     child = child.nextSiblingElement();
   }
-
-  refresh();
+  
+  //refresh();
+}
+double XbelTree::getWeight(QDomElement item) {
+  if (item.tagName() !="bookmark" && item.tagName()!="folder") {
+    return 0;
+  }
+  if (!item.hasAttribute("weight")) {
+    return 0;
+  }
+  return item.attribute("weight").toDouble();
 }
 
 
 double XbelTree::getScore(QDomElement item) {
+  double score=0;
+  if (item.tagName() ==  "bookmark") {
+    if (item.hasAttribute("score")) {
+      printf("book,%lf\n",item.attribute("score").toDouble());
+      return item.attribute("score").toDouble();
+    }
+    return 0;
+  }
   QDomElement child = item.firstChildElement();
+  QTreeWidgetItem* titem=new QTreeWidgetItem;
   while (!child.isNull()) {
-    
+    score+=getScore(child)*getWeight(child);
     child = child.nextSiblingElement();
   }
   
+  
+  
+  item.setAttribute("score",QString::number(score));
+  refresh();
+  return score;
 }
 
   
@@ -181,6 +214,7 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
   QDomElement element = domElementForItem.value(item);
   if (!element.isNull()) {
     if (column == 0) {
+
       QDomElement oldTitleElement = element.firstChildElement("title");
       QDomElement newTitleElement = domDocument.createElement("title");
 
@@ -188,6 +222,7 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
       newTitleElement.appendChild(newTitleText);
 
       element.replaceChild(newTitleElement, oldTitleElement);
+      
     } else {
       if (element.tagName() == "bookmark")
 	element.setAttribute("href", item->text(1));
@@ -198,9 +233,15 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
   }
   
   QDomElement root = domDocument.documentElement();
-  QDomElement child = root.firstChildElement();
-  child.setAttribute("weight","123");
-  updateDomWeight(root);
+  QDomElement child = root.firstChildElement("folder");
+  // child.setAttribute("weight","123");
+
+   updateDomWeight(root);
+  
+  // printf("%s",child.firstChildElement().tagName());
+  // getWeighSum(child);
+  printf("%lf\n",getScore(root));
+
 }
 
 
@@ -260,8 +301,6 @@ void XbelTree::parseFolderElement(const QDomElement &element,
       childItem->setText(0, QString(30, 0xB7));
 	
     }
-
-	
     child = child.nextSiblingElement();
   }
 }
