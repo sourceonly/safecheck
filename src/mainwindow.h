@@ -43,6 +43,18 @@
 
 #include <QMainWindow>
 
+
+QT_BEGIN_NAMESPACE
+class QCheckBox;
+class QGridLayout;
+class QGroupBox;
+class QHBoxLayout;
+class QLabel;
+class QPushButton;
+class QSpinBox;
+class QVBoxLayout;
+QT_END_NAMESPACE
+
 class XbelTree;
 
 class MainWindow : public QMainWindow
@@ -56,13 +68,20 @@ public slots:
     void open();
     void saveAs();
     void about();
+    void updateWeight();
 
 private:
     void createActions();
     void createMenus();
+    void createLabel();
+    void createButtonLayout();
+
+    QPushButton* createButton(const QString &text, QWidget *receiver,
+			      const char *member);
 
     XbelTree *xbelTree;
-
+    QLabel *label;
+    
     QMenu *fileMenu;
     QMenu *helpMenu;
     QAction *openAct;
@@ -70,6 +89,12 @@ private:
     QAction *exitAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
+
+    QHBoxLayout *buttonLayout;
+    QPushButton *buttonupdate;
+    QPushButton *buttonexit;
+    int firstOpen;
+    QString init_file;
 };
 
 #endif

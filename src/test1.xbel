@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE xbel>
 <xbel version="1.0">
+  <folder weight="1">
+    <title>特种设备安全评价指标权重专家打分表总表</title>
   <folder weight="0.30">
     <title>设备本质安全</title>
     <folder weight="0.55">
@@ -223,5 +225,5 @@
 
     
   </folder>
-
+</folder>
 </xbel>

@@ -47,8 +47,10 @@ XbelTree::XbelTree(QWidget *parent)
 {
   QStringList labels;
   labels << tr("Title") << tr("Location") << tr("Weight") << tr("Score");
+  //labels << tr("Title")  << tr("Weight") << tr("Score");
 
-  header()->setSectionResizeMode(QHeaderView::Stretch);
+  //  header()->setSectionResizeMode(QHeaderView::Stretch);
+    header()->setSectionResizeMode(QHeaderView::ResizeToContents);
   setHeaderLabels(labels);
 
   folderIcon.addPixmap(style()->standardPixmap(QStyle::SP_DirClosedIcon),
@@ -121,6 +123,7 @@ bool XbelTree::refresh() {
 
   connect(this, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
 	  this, SLOT(updateDomElement(QTreeWidgetItem*,int)));
+
   return true;
 }
 
@@ -236,7 +239,7 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
   QDomElement child = root.firstChildElement("folder");
   // child.setAttribute("weight","123");
 
-   updateDomWeight(root);
+   // updateDomWeight(root);
   
   // printf("%s",child.firstChildElement().tagName());
   // getWeighSum(child);
@@ -245,12 +248,12 @@ void XbelTree::updateDomElement(QTreeWidgetItem *item, int column)
 }
 
 
-
-
+void XbelTree::updateDomWeightAll() {
+  QDomElement root = domDocument.documentElement();
+  updateDomWeight(root);
+  refresh();
   
-  
-  
-
+}
 
 
 void XbelTree::parseFolderElement(const QDomElement &element,
@@ -268,10 +271,13 @@ void XbelTree::parseFolderElement(const QDomElement &element,
   item->setText(2, element.attribute("weight"));
   item->setText(3, element.attribute("score"));
 
-  item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+  item->setFlags(item->flags() & ~(Qt::ItemIsSelectable|Qt::ItemIsEditable));
 
   bool folded = (element.attribute("folded") != "no");
-  setItemExpanded(item, !folded);
+  // setItemExpanded(item, !folded);
+
+  setItemExpanded(item, true);
+  
     
   QDomElement child = element.firstChildElement();
   while (!child.isNull()) {
