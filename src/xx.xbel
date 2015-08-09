@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xbel>
+<xbel version="1.0">
+    <folder folded="no" weight="0.3">
+        <title>l1-1 </title>
+        <folder folded="yes" weight="0.4">
+            <title>l2-1</title>
+            <bookmark weight="0.5" href="level2">
+                <title>b1</title>
+            </bookmark>
+        </folder>
+    </folder>
+    <folder folded="no" weight="0.7">
+        <title>l1-1 </title>
+        <folder folded="yes" weight="0.4">
+            <title>l2-1</title>
+            <bookmark weight="0.5" href="level2">
+                <title>b1</title>
+            </bookmark>
+        </folder>
+    </folder>
+</xbel>

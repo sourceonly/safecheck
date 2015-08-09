@@ -38,45 +38,16 @@
 **
 ****************************************************************************/
 
-#ifndef XBELTREE_H
-#define XBELTREE_H
+#include <QApplication>
 
-#include <QDomDocument>
-#include <QHash>
-#include <QIcon>
-#include <QTreeWidget>
-#include <mainwindow.h>
+#include "mainwindow.h"
 
-class XbelTree : public QTreeWidget
+int main(int argc, char *argv[])
 {
-    Q_OBJECT
+    QApplication app(argc, argv);
+    MainWindow mainWin;
+    mainWin.show();
 
-public:
-    XbelTree(QWidget *parent = 0);
-    void updateDomWeightAll();
-    bool read(QIODevice *device);
-    bool write(QIODevice *device);
-
-private slots:
-    void updateDomElement(QTreeWidgetItem *item, int column);
-
-private:
-    void parseFolderElement(const QDomElement &element,
-                            QTreeWidgetItem *parentItem = 0);
-    QTreeWidgetItem *createItem(const QDomElement &element,
-                                QTreeWidgetItem *parentItem = 0);
-    void updateDomWeight(QDomElement item);
-
-    double getWeighSum (QDomElement item) ;
-    double getScore(QDomElement item);
-    double getWeight(QDomElement item);
-    bool refresh() ;
-    QDomDocument domDocument;
-    QHash<QTreeWidgetItem *, QDomElement> domElementForItem;
-    QIcon folderIcon;
-    QIcon bookmarkIcon;
-};
-
-
-
-#endif
+    mainWin.open();
+    return app.exec();
+}

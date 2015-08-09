@@ -65,18 +65,25 @@ MainWindow::MainWindow()
   // QVBoxLayout* vbox=new QVBoxLayout;
   // vbox->addLayout(GridLayout);
   GridLayout->addWidget(xbelTree,0,0);
-  label->setText("TO BE FILLED");
+  label->setText("TO be filled");
   GridLayout->addWidget(label,0,1);
-  GridLayout->addLayout(buttonLayout,1,0,1,5);
   GridLayout->setColumnMinimumWidth(0,900);
-  // GridLayout->addLayout(buttonLayout,1,3,1,3);
+  GridLayout->addLayout(buttonLayout,1,1,1,1);
+    // GridLayout->addLayout(buttonLayout,1,2,1,2);
   // GridLayout->setColumnMaximunWidth(1,400);
   w->setLayout(GridLayout);
+
+  // //  w->setAutoFillBackground(true);
+  // QPalette palette;
+  // //  palette.setColor(QPalette::Background, QColor(192,253,123));
+  // palette.setBrush(QPalette::Background, QBrush(QPixmap("../resource/pic1.png")));
+
+  // w->setPalette(palette);
 
   // xbelTree->show();
   // setLayout(vbox);
     
-
+  setWindowIcon(QIcon("../resource/pic1.png"));
   setWindowTitle(tr("DOM Bookmarks"));
   // xbelTree->hide();
   // xbelTree->resize(800,600);
@@ -204,3 +211,4 @@ QPushButton *MainWindow::createButton(const QString &text, QWidget *receiver,
 void MainWindow::updateWeight() {
   xbelTree->updateDomWeightAll();
 }
+

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xbel>
+<xbel score="5.65714" version="1.0">
+    <folder weight="1" score="5.65714">
+        <title score="0">特种设备安全评价指标权重专家打分表总表</title>
+        <folder weight="0.285714" score="19.8">
+            <title score="0">设备本质安全</title>
+            <folder weight="0.55" score="36">
+                <title score="0">生产标准</title>
+                <folder weight="0.6" score="60">
+                    <title score="0">技术法规</title>
+                    <bookmark weight="0.6" score="100" href="">
+                        <title>是否自成体系</title>
+                    </bookmark>
+                    <bookmark weight="0.4">
+                        <title>体系是否完整</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.4" score="0">
+                    <title score="0">技术标准</title>
+                    <bookmark weight="0.4">
+                        <title>关键技术指标 重要设计准则</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>材料安全先进性</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>无损检测方法和要求</title>
+                    </bookmark>
+                </folder>
+            </folder>
+            <folder weight="0.45" score="0">
+                <title score="0">产业生态</title>
+                <folder weight="0.4" score="0">
+                    <title score="0">国产制造水平</title>
+                    <bookmark weight="0.2">
+                        <title>制造企业数（知名企业）</title>
+                    </bookmark>
+                    <bookmark weight="0.5">
+                        <title>年产量（典型设备、关键技术）</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>出口能力（数量与对象国家）</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.1" score="0">
+                    <title score="0">进口产品认证</title>
+                    <bookmark weight="0.4">
+                        <title>进口认证体系是否完备</title>
+                    </bookmark>
+                    <bookmark weight="0.2">
+                        <title>进口认证体系是否先进</title>
+                    </bookmark>
+                    <bookmark weight="0.4">
+                        <title>年进口特种设备的数量与来源</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.5" score="0">
+                    <title score="0">在用设备情况</title>
+                    <bookmark weight="0.5">
+                        <title>在用自产设备与占比</title>
+                    </bookmark>
+                    <bookmark weight="0.5">
+                        <title>在用自产设备与占比</title>
+                    </bookmark>
+                </folder>
+            </folder>
+        </folder>
+        <folder weight="0.333333" score="0">
+            <title score="0">群体安全意识</title>
+            <folder weight="0.65" score="0">
+                <title score="0">相关从业人员</title>
+                <folder weight="0.8" score="0">
+                    <title score="0">国家对人员持证／认证的要求</title>
+                    <bookmark weight="0.35">
+                        <title>操作人员</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>检验、检测人员</title>
+                    </bookmark>
+                    <bookmark weight="0.35">
+                        <title>安装、修理人员</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.2" score="0">
+                    <title score="0">人员培训与再教育</title>
+                    <bookmark weight="0.5">
+                        <title>培训教育的相关规定</title>
+                    </bookmark>
+                    <bookmark weight="0.5">
+                        <title>执行主体（行业、机构、企业等）</title>
+                    </bookmark>
+                </folder>
+            </folder>
+            <folder weight="0.35" score="0">
+                <title score="0">公众普及及宣传</title>
+                <folder weight="0.7" score="0">
+                    <title score="0">公共宣传</title>
+                    <bookmark weight="0.35">
+                        <title>宣传主体（政府机构与渠道）</title>
+                    </bookmark>
+                    <bookmark weight="0.65">
+                        <title>设备安全标识本体与张贴要求</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.3" score="0">
+                    <title score="0">公众设备安全使用意识</title>
+                    <bookmark weight="0.3">
+                        <title>国民素质综合评价标准</title>
+                    </bookmark>
+                    <bookmark weight="0.7">
+                        <title>调查问卷得分</title>
+                    </bookmark>
+                </folder>
+            </folder>
+        </folder>
+        <folder weight="0.238095" score="0">
+            <title score="0">法律法规体系</title>
+            <folder weight="0.7" score="0">
+                <title score="0">管理法律法规</title>
+                <folder weight="1" score="0">
+                    <title score="0">管理法律法规体系</title>
+                    <bookmark weight="0.3">
+                        <title>是否自成体系</title>
+                    </bookmark>
+                    <bookmark weight="0.4">
+                        <title>体系是否完备</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>对安全管理主体责任的要求</title>
+                    </bookmark>
+                </folder>
+            </folder>
+            <folder weight="0.3" score="0">
+                <title score="0">法律法规的执行力</title>
+                <folder weight="1" score="0">
+                    <title score="0">违法处罚</title>
+                    <bookmark weight="0.7">
+                        <title>法律法规的相关处罚规定</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>违法处理机构／部门与处罚数量</title>
+                    </bookmark>
+                </folder>
+            </folder>
+        </folder>
+        <folder weight="0.142857" score="0">
+            <title score="0">事故应急处置</title>
+            <folder weight="0.3" score="0">
+                <title score="0">事故应急体系</title>
+                <folder weight="0.4" score="0">
+                    <title score="0">应急体系</title>
+                    <bookmark weight="1">
+                        <title>特种设备事故应急管理体系</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.3" score="0">
+                    <title score="0">应急预案</title>
+                    <bookmark weight="1">
+                        <title>应急预案的制订与应急演练</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.3" score="0">
+                    <title score="0">应急机构</title>
+                    <bookmark weight="1">
+                        <title>事故应急救技机构或处置机构</title>
+                    </bookmark>
+                </folder>
+            </folder>
+            <folder weight="0.2" score="0">
+                <title score="0">应急处置能力</title>
+                <folder weight="0.5" score="0">
+                    <title score="0">响应处置案例</title>
+                    <bookmark weight="1">
+                        <title>应急响影处置减小事故损失案例</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.5" score="0">
+                    <title score="0">事故预防成效</title>
+                    <bookmark weight="1">
+                        <title>事故预警、预防研究对法规、标准、安全的贡献</title>
+                    </bookmark>
+                </folder>
+            </folder>
+            <folder weight="0.5" score="0">
+                <title score="0">事故及其影响</title>
+                <folder weight="0.5" score="0">
+                    <title score="0">事故数量</title>
+                    <bookmark weight="0.5">
+                        <title>事故绝对数量</title>
+                    </bookmark>
+                    <bookmark weight="0.5">
+                        <title>万台设备事故率</title>
+                    </bookmark>
+                </folder>
+                <folder weight="0.5" score="0">
+                    <title score="0">事故影响</title>
+                    <bookmark weight="0.4">
+                        <title>人员伤害情况</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>财产损失额度</title>
+                    </bookmark>
+                    <bookmark weight="0.3">
+                        <title>环境破坏影响</title>
+                    </bookmark>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+</xbel>

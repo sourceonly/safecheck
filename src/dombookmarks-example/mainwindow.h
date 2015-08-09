@@ -38,45 +38,38 @@
 **
 ****************************************************************************/
 
-#ifndef XBELTREE_H
-#define XBELTREE_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QDomDocument>
-#include <QHash>
-#include <QIcon>
-#include <QTreeWidget>
-#include <mainwindow.h>
+#include <QMainWindow>
 
-class XbelTree : public QTreeWidget
+class XbelTree;
+
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    XbelTree(QWidget *parent = 0);
-    void updateDomWeightAll();
-    bool read(QIODevice *device);
-    bool write(QIODevice *device);
+    MainWindow();
 
-private slots:
-    void updateDomElement(QTreeWidgetItem *item, int column);
+public slots:
+    void open();
+    void saveAs();
+    void about();
 
 private:
-    void parseFolderElement(const QDomElement &element,
-                            QTreeWidgetItem *parentItem = 0);
-    QTreeWidgetItem *createItem(const QDomElement &element,
-                                QTreeWidgetItem *parentItem = 0);
-    void updateDomWeight(QDomElement item);
+    void createActions();
+    void createMenus();
 
-    double getWeighSum (QDomElement item) ;
-    double getScore(QDomElement item);
-    double getWeight(QDomElement item);
-    bool refresh() ;
-    QDomDocument domDocument;
-    QHash<QTreeWidgetItem *, QDomElement> domElementForItem;
-    QIcon folderIcon;
-    QIcon bookmarkIcon;
+    XbelTree *xbelTree;
+
+    QMenu *fileMenu;
+    QMenu *helpMenu;
+    QAction *openAct;
+    QAction *saveAsAct;
+    QAction *exitAct;
+    QAction *aboutAct;
+    QAction *aboutQtAct;
 };
-
-
 
 #endif

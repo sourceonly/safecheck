@@ -51,6 +51,7 @@ XbelTree::XbelTree(QWidget *parent)
 
   //  header()->setSectionResizeMode(QHeaderView::Stretch);
     header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    
   setHeaderLabels(labels);
 
   folderIcon.addPixmap(style()->standardPixmap(QStyle::SP_DirClosedIcon),
@@ -58,6 +59,37 @@ XbelTree::XbelTree(QWidget *parent)
   folderIcon.addPixmap(style()->standardPixmap(QStyle::SP_DirOpenIcon),
 		       QIcon::Normal, QIcon::On);
   bookmarkIcon.addPixmap(style()->standardPixmap(QStyle::SP_FileIcon));
+  // const char *STYLE_SHEET =
+  //       "QTreeView"
+  //       "{"
+  //          "color: #000000;"
+  //          "background-color: #B6B6B6;"
+  //          "alternate-background-color: #FFFFFF;"
+  //          "selection-color: #FF0000;"
+  //          "selection-background-color: #7FB3E6;"
+  //       "}";
+  // const char *STYLE_SHEET =
+  //   "QTreeView"
+  //   "{"
+  //   "background-image: url(\"../resource/pic1.png\");"
+  //   "background-image: url(\"../resource/pic1.png\");"
+  //   "}";
+
+
+    const char *STYLE_SHEET =
+    "QTreeView"
+    "{"
+      "border-image: url(\"../resource/pic1.png\");"
+     "}";
+
+
+
+  // setAlternatingRowColors(true);
+  // setStyleSheet("alternate-background-color: #FFFFFF;background-color: #B6B6B6;");
+  setStyleSheet(STYLE_SHEET);
+  QFont font("",12,QFont::Bold);
+  this->setFont(font);
+
 }
 
 bool XbelTree::read(QIODevice *device)
